@@ -183,30 +183,51 @@ static void AFHDS2A_build_packet(uint8_t type)
 	{
 		case AFHDS2A_PACKET_STICKS:		
 			packet[0] = 0x58;
-			for(uint8_t ch=0; ch<14; ch++)
+			//16 channels + RX_LQI on channel 17
+			for(uint8_t ch=0; ch<17; ch++)
 			{
-				uint16_t channelMicros = convert_channel_ppm(CH_AETR[ch]);
-				packet[9 +  ch*2] = channelMicros&0xFF;
-				packet[10 + ch*2] = (channelMicros>>8)&0xFF;
+				uint16_t channelMicros;
+				if(ch == 16 // CH17=RX_LQI
+				#ifdef AFHDS2A_LQI_CH
+					|| ch == (AFHDS2A_LQI_CH-1)	// override channel with LQI
+				#endif
+					)
+					channelMicros = 2000 - 10*RX_LQI;
+				else
+					channelMicros = convert_channel_ppm(CH_AETR[ch]);
+				if(i<14)
+				{
+					packet[9 +  ch*2] = channelMicros;
+					packet[10 + ch*2] = (channelMicros>>8)&0x0F;
+				}
+				else
+				{
+					packet[10 + (ch-14)*6] = (channelMicros)<<4;
+					packet[12 + (ch-14)*6] = (channelMicros)&0xF0;
+					packet[14 + (ch-14)*6] = (channelMicros>>4)&0xF0;
+				}
 			}
-			#ifdef AFHDS2A_LQI_CH
-				// override channel with LQI
-				val = 2000 - 10*RX_LQI;
-				packet[9+((AFHDS2A_LQI_CH-1)*2)] = val & 0xff;
-				packet[10+((AFHDS2A_LQI_CH-1)*2)] = (val >> 8) & 0xff;
-			#endif
 			break;
 		case AFHDS2A_PACKET_FAILSAFE:
 			packet[0] = 0x56;
-			for(uint8_t ch=0; ch<14; ch++)
+			for(uint8_t ch=0; ch<16; ch++)
 			{
 				#ifdef FAILSAFE_ENABLE
 					uint16_t failsafeMicros = Failsafe_data[CH_AETR[ch]];
 					if( failsafeMicros!=FAILSAFE_CHANNEL_HOLD && failsafeMicros!=FAILSAFE_CHANNEL_NOPULSES)
 					{ // Failsafe values
 						failsafeMicros = (((failsafeMicros<<2)+failsafeMicros)>>3)+860;
-						packet[9 + ch*2] =  failsafeMicros & 0xff;
-						packet[10+ ch*2] = ( failsafeMicros >> 8) & 0xff;
+						if(i<14)
+						{
+							packet[9 +  ch*2] = failsafeMicros;
+							packet[10 + ch*2] = (failsafeMicros>>8)&0x0F;
+						}
+						else
+						{
+							packet[10 + (ch-14)*6] = (failsafeMicros)<<4;
+							packet[12 + (ch-14)*6] = (failsafeMicros)&0xF0;
+							packet[14 + (ch-14)*6] = (failsafeMicros>>4)&0xF0;
+						}
 					}
 					else
 				#endif
