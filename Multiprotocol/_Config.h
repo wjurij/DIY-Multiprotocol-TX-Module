@@ -25,6 +25,7 @@
 //To enable this config file remove the // from the line below.
 //#define USE_MY_CONFIG
 
+#define DISABLE_FLASH_SIZE_CHECK
 
 /*************************/
 /*** BOOTLOADER USE     ***/
@@ -75,7 +76,7 @@
 //5-in-1 modules have all RF chips installed
 //!!!If a RF chip is present it MUST be marked as installed!!! or weird things will happen you have been warned.
 #define A7105_INSTALLED
-#define CYRF6936_INSTALLED
+//#define CYRF6936_INSTALLED
 #define CC2500_INSTALLED
 #define NRF24L01_INSTALLED
 //#define SX1276_INSTALLED		// only supported on STM32 modules
@@ -170,22 +171,22 @@
 #define	AFHDS2A_RX_A7105_INO
 #define	BUGS_A7105_INO
 #define	FLYSKY_A7105_INO
-#define	HEIGHT_A7105_INO
+//#define	HEIGHT_A7105_INO
 #define	HUBSAN_A7105_INO
-#define KYOSHO_A7105_INO
-#define	PELIKAN_A7105_INO
+//#define KYOSHO_A7105_INO
+//#define	PELIKAN_A7105_INO
 
 //The protocols below need a CYRF6936 to be installed
-#define	DEVO_CYRF6936_INO
-#define	DSM_CYRF6936_INO
-#define	DSM_RX_CYRF6936_INO
-#define	J6PRO_CYRF6936_INO
-#define	TRAXXAS_CYRF6936_INO
-#define	WFLY_CYRF6936_INO
-#define	WK2x01_CYRF6936_INO
+//#define	DEVO_CYRF6936_INO
+//#define	DSM_CYRF6936_INO
+//#define	DSM_RX_CYRF6936_INO
+//#define	J6PRO_CYRF6936_INO
+//#define	TRAXXAS_CYRF6936_INO
+//#define	WFLY_CYRF6936_INO
+//#define	WK2x01_CYRF6936_INO
 
 //The protocols below need a CC2500 to be installed
-#define	CORONA_CC2500_INO
+//#define	CORONA_CC2500_INO
 #define	ESKY150V2_CC2500_INO	//Need both CC2500 and NRF
 #define	FRSKYL_CC2500_INO
 #define	FRSKYD_CC2500_INO
@@ -193,56 +194,56 @@
 #define	FRSKYX_CC2500_INO
 #define	FRSKY_RX_CC2500_INO
 #define	HITEC_CC2500_INO
-#define	HOTT_CC2500_INO
-#define	OMP_CC2500_INO			//Need both CC2500 and NRF
-#define	SCANNER_CC2500_INO
+//#define	HOTT_CC2500_INO
+//#define	OMP_CC2500_INO			//Need both CC2500 and NRF
+//#define	SCANNER_CC2500_INO
 #define	SFHSS_CC2500_INO
-#define	SKYARTEC_CC2500_INO
-#define	REDPINE_CC2500_INO
-#define	RLINK_CC2500_INO
+//#define	SKYARTEC_CC2500_INO
+//#define	REDPINE_CC2500_INO
+//#define	RLINK_CC2500_INO
 
 //The protocols below need a NRF24L01 to be installed
-#define	ASSAN_NRF24L01_INO
+//#define	ASSAN_NRF24L01_INO
 #define	BAYANG_NRF24L01_INO
 #define	BAYANG_RX_NRF24L01_INO
 #define	BUGSMINI_NRF24L01_INO
 #define	CABELL_NRF24L01_INO
 #define	CFLIE_NRF24L01_INO
-#define	CG023_NRF24L01_INO
-#define	CX10_NRF24L01_INO		 //Include Q2X2 protocol
-#define	DM002_NRF24L01_INO
-#define	E01X_NRF24L01_INO
+//#define	CG023_NRF24L01_INO
+//#define	CX10_NRF24L01_INO		 //Include Q2X2 protocol
+//#define	DM002_NRF24L01_INO
+//#define	E01X_NRF24L01_INO
 #define	ESKY_NRF24L01_INO
 #define	ESKY150_NRF24L01_INO
-#define	FQ777_NRF24L01_INO
-#define	FX816_NRF24L01_INO
-#define	FY326_NRF24L01_INO
-#define	GD00X_NRF24L01_INO
-#define	GW008_NRF24L01_INO
+//#define	FQ777_NRF24L01_INO
+//#define	FX816_NRF24L01_INO
+//#define	FY326_NRF24L01_INO
+//#define	GD00X_NRF24L01_INO
+//#define	GW008_NRF24L01_INO
 #define	HISKY_NRF24L01_INO
 #define	HONTAI_NRF24L01_INO
-#define	H8_3D_NRF24L01_INO
-#define	JJRC345_NRF24L01_INO
-#define	KF606_NRF24L01_INO
-#define	KN_NRF24L01_INO
-#define	MJXQ_NRF24L01_INO
-#define	MT99XX_NRF24L01_INO
-#define	NCC1701_NRF24L01_INO
-#define	POTENSIC_NRF24L01_INO
-#define	PROPEL_NRF24L01_INO
-#define	Q303_NRF24L01_INO
-#define	Q90C_NRF24L01_INO
-#define	REALACC_NRF24L01_INO
-#define	SHENQI_NRF24L01_INO
-#define	SLT_NRF24L01_INO
+//#define	H8_3D_NRF24L01_INO
+//#define	JJRC345_NRF24L01_INO
+//#define	KF606_NRF24L01_INO
+//#define	KN_NRF24L01_INO
+//#define	MJXQ_NRF24L01_INO
+//#define	MT99XX_NRF24L01_INO
+//#define	NCC1701_NRF24L01_INO
+//#define	POTENSIC_NRF24L01_INO
+//#define	PROPEL_NRF24L01_INO
+//#define	Q303_NRF24L01_INO
+//#define	Q90C_NRF24L01_INO
+//#define	REALACC_NRF24L01_INO
+//#define	SHENQI_NRF24L01_INO
+//#define	SLT_NRF24L01_INO
 #define	SYMAX_NRF24L01_INO
 #define	TIGER_NRF24L01_INO
-#define	V2X2_NRF24L01_INO
-#define	V761_NRF24L01_INO
-#define	V911S_NRF24L01_INO
-#define	XK_NRF24L01_INO
-#define	YD717_NRF24L01_INO
-#define	ZSX_NRF24L01_INO
+//#define	V2X2_NRF24L01_INO
+//#define	V761_NRF24L01_INO
+//#define	V911S_NRF24L01_INO
+//#define	XK_NRF24L01_INO
+//#define	YD717_NRF24L01_INO
+//#define	ZSX_NRF24L01_INO
 
 //The protocols below need a SX1276 to be installed
 #define	FRSKYR9_SX1276_INO
@@ -299,11 +300,11 @@
 
 //Uncomment if you want to send Multi status telemetry frames (Protocol available, Bind in progress, version...)
 //Use with er9x/erskyTX, for OpenTX you must select MULTI_TELEMETRY below
-//#define MULTI_STATUS
+#define MULTI_STATUS
 
 //Sends Multi status and allow OpenTX to autodetect the telemetry format. Comment to disable.
 //Supported by OpenTX version 2.2 RC9 and newer. NOT supported by er9x/erskyTX use MULTI_STATUS instead.
-#define MULTI_TELEMETRY
+//#define MULTI_TELEMETRY
 //Work in progress: Sync OpenTX frames with the current protocol timing. This feature is only available on the STM32 module. Uncomment to enable.
 //#define MULTI_SYNC
 
@@ -346,7 +347,7 @@
 /*************************/
 //In this section you can configure all details about PPM.
 //If you do not plan to use the PPM mode comment this line using "//" to save Flash space, you don't need to configure anything below in this case
-#define ENABLE_PPM
+//#define ENABLE_PPM
 
 /** TX END POINTS **/
 //It is important for the module to know the endpoints of your radio.
@@ -671,8 +672,7 @@ const PPM_Parameters PPM_prot[14*NBR_BANKS]=	{
 		WLTOYS
 		FEILUN
 	PROTO_KYOSHO
-		KYOSHO_FHSS
-		KYOSHO_HYPE
+		NONE
 	PROTO_MJXQ
 		WLH08
 		X600
